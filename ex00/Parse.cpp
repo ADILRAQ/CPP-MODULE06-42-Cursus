@@ -6,7 +6,7 @@
 /*   By: araqioui <araqioui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 11:35:57 by araqioui          #+#    #+#             */
-/*   Updated: 2023/09/22 09:50:41 by araqioui         ###   ########.fr       */
+/*   Updated: 2023/09/22 17:31:25 by araqioui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,13 @@ void	printNb(double nb, char dataType)
 
 	if (dataType == 'i' || dataType == 'c')
 		std::cout << std::fixed << std::setprecision(1);
-	std::cout << "int: " << Int << std::endl;
-	std::cout << "float: " << Float << "f" << std::endl;
+	if (nb < (double)INT_MIN || nb > (double)INT_MAX)
+		std::cout << "int: Impossible" << std::endl;
+	else
+		std::cout << "int: " << Int << std::endl;
+	if (nb < (double)__FLT_MIN__ || nb > (double)__FLT_MAX__)
+		std::cout << "float: Impossible" << std::endl;
+	else
+		std::cout << "float: " << Float << "f" << std::endl;
 	std::cout << "double: " << nb << std::endl;
 }
