@@ -6,7 +6,7 @@
 /*   By: araqioui <araqioui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 11:35:57 by araqioui          #+#    #+#             */
-/*   Updated: 2023/09/22 17:31:25 by araqioui         ###   ########.fr       */
+/*   Updated: 2023/09/23 14:32:34 by araqioui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	parseForm(std::string form, char &dataType)
 	int		i;
 
 	i = 0;
-	if (form.length() == 3 && form[i] == '\'' && form[2] == '\'' && !form[3])
+	if (form.length() == 3 && form[i] == '\'' && form[2] == '\'')
 		return (dataType = 'c', 1);
 	if (((form [i] == '+' || form[i] == '-') && form[i + 1]) || isdigit(form[i]))
 	{
@@ -31,7 +31,7 @@ int	parseForm(std::string form, char &dataType)
 	{
 		if (!isdigit(form[i]))
 		{
-			if (form[i] == '.' && form[i + 1] && dataType == 'i')
+			if (form[i] == '.' && form[i + 1] && form[i + 1] != 'f' && dataType == 'i')
 				dataType = 'd';
 			else if (form[i] == 'f' && !form[i + 1] && dataType == 'd')
 				dataType = 'f';
@@ -71,8 +71,8 @@ void	printChar(double nb)
 {
 	char		c = static_cast<char>(nb);
 
-	if (!isascii(c))
-	std::cout << "char: impossible" << std::endl;
+	if (nb < 0 || nb > 127)
+		std::cout << "char: impossible" << std::endl;
 	else if (!isprint(c))
 		std::cout << "char: Non displayable" << std::endl;
 	else
@@ -86,13 +86,7 @@ void	printNb(double nb, char dataType)
 
 	if (dataType == 'i' || dataType == 'c')
 		std::cout << std::fixed << std::setprecision(1);
-	if (nb < (double)INT_MIN || nb > (double)INT_MAX)
-		std::cout << "int: Impossible" << std::endl;
-	else
-		std::cout << "int: " << Int << std::endl;
-	if (nb < (double)__FLT_MIN__ || nb > (double)__FLT_MAX__)
-		std::cout << "float: Impossible" << std::endl;
-	else
-		std::cout << "float: " << Float << "f" << std::endl;
+	std::cout << "int: " << Int << std::endl;
+	std::cout << "float: " << Float << "f" << std::endl;
 	std::cout << "double: " << nb << std::endl;
 }
