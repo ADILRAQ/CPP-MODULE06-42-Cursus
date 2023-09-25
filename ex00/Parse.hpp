@@ -6,7 +6,7 @@
 /*   By: araqioui <araqioui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 11:36:07 by araqioui          #+#    #+#             */
-/*   Updated: 2023/09/22 09:48:01 by araqioui         ###   ########.fr       */
+/*   Updated: 2023/09/25 11:07:02 by araqioui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 #include <iostream>
 #include <iomanip>
+#include <sstream>
 
 int 	parseForm(std::string form, char &dataType);
 bool	isMaxMin(std::string form);
 void	printMaxMin(std::string form);
-void	printChar(double nb);
-void	printNb(double nb, char dataType);
+void	printChar(int nb);
+void	printNb(std::string str, char dataType);

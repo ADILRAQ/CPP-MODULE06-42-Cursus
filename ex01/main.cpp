@@ -6,7 +6,7 @@
 /*   By: araqioui <araqioui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 12:45:11 by araqioui          #+#    #+#             */
-/*   Updated: 2023/09/23 14:31:48 by araqioui         ###   ########.fr       */
+/*   Updated: 2023/09/23 16:55:22 by araqioui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,5 @@ int	main(void)
 	uintptr_t	raw = Serializer::serialize(ptr);
 	std::cout << raw << std::endl;
 	std::cout << Serializer::deserialize(raw)->str << std::endl;
+	delete ptr;
 }

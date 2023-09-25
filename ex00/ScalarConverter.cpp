@@ -6,7 +6,7 @@
 /*   By: araqioui <araqioui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 10:03:36 by araqioui          #+#    #+#             */
-/*   Updated: 2023/09/22 09:49:33 by araqioui         ###   ########.fr       */
+/*   Updated: 2023/09/25 11:06:58 by araqioui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,15 +49,9 @@ void	ScalarConverter::convert(std::string form)
 		else if (parseForm(form, dataType))
 		{
 			if (dataType != 'c')
-			{
-				printChar(atoi(form.c_str()));
-				printNb(atof(form.c_str()), dataType);
-			}
+				printNb(form, dataType);
 			else
-			{
 				printChar(form[1]);
-				printNb(form[1], dataType);
-			}
 		}
 		else
 			std::cout << "Error: Invalid Form" << std::endl;
